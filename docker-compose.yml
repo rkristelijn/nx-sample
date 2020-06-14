@@ -8,16 +8,45 @@
 # STOP:
 #  docker-compose down
 
-db:
-  image: postgres
-  container_name: nx-sample
-  hostname: postgresdb
-  ports:
-    - '5432:5432'
-  environment:
-    POSTGRES_USER: user
-    POSTGRES_PASSWORD: pass
-    POSTGRES_DB: sample
-  volumes:
-    - postgres_data:/var/lib/postgres
-    - ./dbscripts/postgres:/docker-entrypoint-initdb.d
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres
+    container_name: nx-sample
+    hostname: postgresdb
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pass}
+      POSTGRES_DB: sample
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/var/lib/postgres
+      - ./dbscripts/postgres:/docker-entrypoint-initdb.d
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+      - pgadmin:/root/.pgadmin
+    ports:
+      - '${PGADMIN_PORT:-5050}:80'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
