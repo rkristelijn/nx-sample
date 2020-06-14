@@ -70,6 +70,12 @@ restrictions:
 
 - Please **do not** open issues or pull requests regarding libs used in this project. Take them to their own project.
 
+## Automatic branch creation
+
+Because of [Create Issue Branch](https://github.com/marketplace/actions/create-issue-branch), when assigning an issue, a branch is automatically created for you. (how cool is that?). [Configuration](https://github.com/marketplace/actions/create-issue-branch#branch-names) can be found in [`.github/issue-branch.yml`](.github/issue-branch.yml)
+
+More Github apps can be found [here](https://github.com/marketplace)
+
 <a name="bugs"></a>
 
 ## Bug reports
