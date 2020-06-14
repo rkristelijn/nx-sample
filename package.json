@@ -27,6 +27,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "git:cleanup": "git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d",
     "db:up": "docker-compose up -d",
     "db:down": "docker-compose down",
     "db:connect": "docker exec -it nx-sample psql -h postgresdb -U user sample",
