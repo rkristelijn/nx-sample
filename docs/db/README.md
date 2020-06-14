@@ -125,7 +125,7 @@ Every database needs a proper database tool. This repo ships with pgAdmin 4 in a
 
 Point your browser to `http://localhost:5050/`
 
-- User: `admin`
+- User: `pgadmin4@pgadmin.org`
 - Pass: `admin`
 
 Now you need to add a server:
@@ -173,3 +173,4 @@ SELECT * FROM foo;
 - https://www.datacamp.com/community/tutorials/10-command-line-utilities-postgresql?utm_source=adwords_ppc&utm_campaignid=9942305733&utm_adgroupid=100189364546&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=255798340456&utm_targetid=dsa-929501846124&utm_loc_interest_ms=&utm_loc_physical_ms=9064829&gclid=CjwKCAjw8pH3BRAXEiwA1pvMsYUXPJpy5GOPDh1O1UfDudkamrAxy5pOH6rbbazU9L1Ju-qddRbSfBoCHTEQAvD_BwE
 - https://app.pluralsight.com/library/courses/postgresql-getting-started/table-of-contents
 - https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database
+- postgres + pgAdmin example: https://github.com/khezen/compose-postgres
