@@ -1,0 +1,23 @@
+# DOCUMENTATION: docs/db/README.md
+
+# prerequisites: install docker desktop
+
+# START:
+# docker-compose up -d
+
+# STOP:
+#  docker-compose down
+
+db:
+  image: postgres
+  container_name: nx-sample
+  hostname: postgresdb
+  ports:
+    - '5432:5432'
+  environment:
+    POSTGRES_USER: user
+    POSTGRES_PASSWORD: pass
+    POSTGRES_DB: sample
+  volumes:
+    - postgres_data:/var/lib/postgres
+    - ./dbscripts/postgres:/docker-entrypoint-initdb.d
