@@ -25,7 +25,12 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:connect": "docker exec -it nx-sample psql -h postgresdb -U user sample",
+    "db:backup": "docker exec -t nx-sample pg_dumpall -c -U user > data/sample.sql",
+    "db:restore": "cat data/sample.sql | docker exec -i nx-sample psql -U user -d sample"
   },
   "private": true,
   "dependencies": {
