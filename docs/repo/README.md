@@ -4,13 +4,13 @@ We enforce using [conventional commits](https://www.conventionalcommits.org/en/v
 
 ## Template
 
-`Type(scope): subject #reference`
+`type(scope): subject #reference`
 
 ## Motivation
 
 - **scope** - If the scope is there, the commit message can be so much shorter. It also makes you write what you do to this `scope`.
 - **reference** - there should always be an issue; the reason for the change
-- **case** - because github already has a preferences when merging, we follow enforcing first letter upper case
+- **case** - because github already has a preferences when merging, we would like to put the first letter uppercase but this conflicts with the convention. so we keep it lowercase
 
 ## Type
 
@@ -32,10 +32,10 @@ We enforce using [conventional commits](https://www.conventionalcommits.org/en/v
 
 ## Examples
 
-- `Docs(repo): add mention of reference #5`
-- `Style(commitlint): use prettier #5`
-- `Ci(issue-branch): add config #4`
-- `Feat(db) add postgres and docker #1`
+- `docs(repo): add mention of reference #5`
+- `style(commitlint): use prettier #5`
+- `ci(issue-branch): add config #4`
+- `feat(db) add postgres and docker #1`
 
 # References
 
