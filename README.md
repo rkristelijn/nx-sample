@@ -20,3 +20,4 @@ to start:
 - [Postgres and Database](docs/db/README.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributions](CONTRIBUTIONS.md)
+- [Licence](LICENCE.txt)
