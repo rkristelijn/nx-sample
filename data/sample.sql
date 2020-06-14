@@ -224,6 +224,68 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: foo; Type: TABLE; Schema: public; Owner: user
+--
+
+CREATE TABLE public.foo (
+    id integer NOT NULL,
+    bar character varying
+);
+
+
+ALTER TABLE public.foo OWNER TO "user";
+
+--
+-- Name: foo_id_seq; Type: SEQUENCE; Schema: public; Owner: user
+--
+
+CREATE SEQUENCE public.foo_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.foo_id_seq OWNER TO "user";
+
+--
+-- Name: foo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: user
+--
+
+ALTER SEQUENCE public.foo_id_seq OWNED BY public.foo.id;
+
+
+--
+-- Name: foo id; Type: DEFAULT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY public.foo ALTER COLUMN id SET DEFAULT nextval('public.foo_id_seq'::regclass);
+
+
+--
+-- Data for Name: foo; Type: TABLE DATA; Schema: public; Owner: user
+--
+
+COPY public.foo (id, bar) FROM stdin;
+1	blah
+2	blah
+\.
+
+
+--
+-- Name: foo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user
+--
+
+SELECT pg_catalog.setval('public.foo_id_seq', 2, true);
+
+
 --
 -- PostgreSQL database dump complete
 --

@@ -119,6 +119,53 @@ docker exec -t nx-sample pg_dumpall -c -U user > dump_`date +%d-%m-%Y"_"%H_%M_%S
 cat data/sample.sql | docker exec -i nx-sample psql -U user -d sample
 ```
 
+# pgAdmin 4
+
+Every database needs a proper database tool. This repo ships with pgAdmin 4 in a docker image. Whenever you do `docker-compose up` the tool gets started automatically.
+
+Point your browser to `http://localhost:5050/`
+
+- User: `admin`
+- Pass: `admin`
+
+Now you need to add a server:
+
+- Name: any, I choose `local`
+
+Tab connection:
+
+- Host name/address: `postgres`
+- Port: `5432` (default)
+- User: `user`
+- Password: `pass`
+
+The tool saves these settings.
+
+No you can drill down to:
+
+- Servers
+  - Databases (2)
+    - sample
+      - Schemas (1)
+        - public
+          - Tables
+
+## Create, insert and select example
+
+```sql
+CREATE TABLE foo (
+id SERIAL,
+bar varchar);
+
+INSERT INTO foo (bar) values ('blah');
+INSERT INTO foo (bar) values ('blah');
+
+SELECT * FROM foo;
+
+1,blah
+2,blah
+```
+
 # Resources
 
 - https://blog.jetbrains.com/pycharm/2017/04/docker-compose-adding-a-database-service/?gclid=CjwKCAjw8pH3BRAXEiwA1pvMsf2AER5_If90dI71wKQjdUMP5FgdOg92lW9lH6IaJWpDEMvCmfxzyxoCeYEQAvD_BwE
