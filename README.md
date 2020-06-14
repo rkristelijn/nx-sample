@@ -17,7 +17,9 @@ to start:
 
 ## Documentation
 
-- [Postgres and Database](docs/db/README.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Contributions](CONTRIBUTIONS.md)
-- [Licence](LICENCE.md)
+- Generic
+  - [Code of Conduct](CODE_OF_CONDUCT.md)
+  - [Contributions](CONTRIBUTIONS.md)
+  - [Licence](LICENCE.md)
+- Topics
+  - [Postgres and Database](docs/db/README.md)
