@@ -73,6 +73,7 @@
     "husky": "^4.2.5",
     "jest": "25.2.3",
     "jest-preset-angular": "8.1.2",
+    "lint-staged": "^10.2.10",
     "prettier": "2.0.4",
     "ts-jest": "25.2.1",
     "ts-node": "~7.0.0",
@@ -81,7 +82,12 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.format:write": "prettier --write"
   }
 }
